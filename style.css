@@ -1,0 +1,478 @@
+:root {
+    --bg-dark: #0d1117;
+    --bg-card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --accent: #58a6ff;
+    --font: 'Segoe UI', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text);
+    font-family: var(--font);
+    line-height: 1.6;
+}
+
+/* === Header & Navegação === */
+
+header {
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border);
+    padding: 20px;
+    text-align: center;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    margin: 0 10px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* === Avatar com animação secreta === */
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+}
+
+.avatar.shake {
+    animation: tremer 0.3s;
+}
+
+@keyframes tremer {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 1px);
+    }
+
+    40% {
+        transform: translate(2px, -1px);
+    }
+
+    60% {
+        transform: translate(-1px, 2px);
+    }
+
+    80% {
+        transform: translate(1px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+/* === Balão de sucesso secreto === */
+
+.nuvem-pensamento {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.nuvem-pensamento.mostrar {
+    opacity: 1;
+}
+
+.bolha {
+    background: rgb(255, 255, 255);
+    border-radius: 30%;
+    position: absolute;
+    opacity: 0;
+}
+
+.bolha1 {
+    width: 10px;
+    height: 10px;
+    left: 110px;
+    top: 80px;
+}
+
+.bolha2 {
+    width: 18px;
+    height: 18px;
+    left: 80px;
+    top: 55px;
+}
+
+.bolha3 {
+    width: 97px;
+    height: 68px;
+    left: -5px;
+    top: -10px;
+}
+
+.bolha4 {
+    width: 47px;
+    height: 48px;
+    left: -20px;
+    top: 10px;
+}
+
+.bolha5 {
+    width: 57px;
+    height: 48px;
+    left: 10px;
+    top: 20px;
+}
+
+.texto-nuvem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-family: monospace;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+}
+
+/* Animação de bolhas/nuvem */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* === Seções gerais === */
+
+main {
+    padding: 40px 20px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-family: monospace;
+    color: var(--accent);
+}
+
+/* === Cards de projetos === */
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card h3 {
+    font-family: monospace;
+    color: var(--accent);
+}
+
+.card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* === Experiência e Formação === */
+
+.timeline {
+    position: relative;
+    margin: 0 auto 40px auto;
+    max-width: 800px;
+    border-left: 2px solid var(--accent);
+    padding-left: 30px;
+}
+
+.timeline .item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline .dot {
+    position: absolute;
+    left: -18px;
+    top: 6px;
+    width: 32px;
+    height: 32px;
+    background-color: var(--bg-card);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--accent);
+    z-index: 1;
+}
+
+.timeline .content {
+    background-color: var(--bg-card);
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.timeline .content h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: var(--accent);
+}
+
+.timeline .tempo {
+    font-size: 14px;
+    color: #8b949e;
+}
+
+/* === Botão para módulos ocultos === */
+
+.toggle-detalhes {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.aviso-seta {
+    font-size: 13px;
+    color: #aaa;
+    font-style: italic;
+    margin-top: 6px;
+}
+
+.modulos-concluidos {
+    display: none;
+    margin-top: 10px;
+    padding-left: 20px;
+    list-style-type: disc;
+    font-size: 14px;
+    color: var(--text);
+}
+
+.content.expanded .modulos-concluidos {
+    display: block;
+}
+
+.content.expanded .toggle-detalhes {
+    transform: rotate(180deg);
+}
+
+/* === Habilidades com slider === */
+
+.habilidades-animadas {
+    font-family: monospace;
+    font-size: 16px;
+    color: var(--accent);
+    margin-top: 5px;
+    text-align: center;
+    min-height: 24px;
+    transition: all 0.3s ease;
+}
+
+.habilidades-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 8px;
+    margin-top: 5px;
+    gap: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slider-container {
+    overflow: hidden;
+    flex: 1;
+    min-width: 0;
+}
+
+.habilidades-slider {
+    display: inline-flex;
+    gap: 30px;
+    animation: deslizar 25s linear infinite;
+    white-space: nowrap;
+    font-family: monospace;
+    font-size: 16px;
+    color: var(--accent);
+}
+
+.habilidades-slider span {
+    display: inline-block;
+}
+
+#toggle-play {
+    background: none;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 16px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#toggle-play:hover {
+    background-color: var(--accent);
+    color: var(--bg-dark);
+}
+
+@keyframes deslizar {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* === Idiomas === */
+
+.lista-idiomas {
+    list-style: none;
+    padding-left: 0;
+}
+
+.lista-idiomas li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.bandeira {
+    width: 24px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 2px #000;
+}
+
+/* === Feedbacks e formulário === */
+
+.feedbacks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.feedback {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+    font-family: monospace;
+}
+
+.form-contato {
+    max-width: 600px;
+    margin: auto;
+}
+
+.linha {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.form-contato input,
+.form-contato textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: monospace;
+}
+
+.form-contato button {
+    background-color: var(--accent);
+    border: none;
+    padding: 10px 20px;
+    color: #0d1117;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* === Mapa === */
+
+#meuMapa {
+    border: 2px dashed var(--accent);
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* === Rodapé === */
+
+footer {
+    background-color: var(--bg-card);
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    border-top: 1px solid var(--border);
+}
+
+.nuvem-pensamento {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.nuvem-pensamento.ativo {
+    opacity: 1;
+}
