@@ -13,15 +13,6 @@ toggleButton.addEventListener("click", () => {
     toggleButton.title = animando ? "Pausar animação" : "Retomar animação";
 });
 
-// ===== Desenho do "mapa" fictício no canvas =====
-const canvas = document.getElementById("meuMapa");
-const ctx = canvas.getContext("2d");
-ctx.fillStyle = "#161b22";
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-ctx.fillStyle = "#58a6ff";
-ctx.font = "20px monospace";
-ctx.fillText("Mapa da minha região vai aqui 🗺️", 10, 50);
-
 // ===== Expansão de módulos da formação acadêmica =====
 document.querySelectorAll(".toggle-detalhes").forEach(botao => {
     botao.addEventListener("click", () => {

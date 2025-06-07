@@ -448,15 +448,6 @@ h2 {
     margin-top: 10px;
 }
 
-/* === Mapa === */
-
-#meuMapa {
-    border: 2px dashed var(--accent);
-    background-color: var(--bg-card);
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
 /* === Rodapé === */
 
 footer {
