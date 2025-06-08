@@ -66,17 +66,6 @@ avatar.addEventListener("click", () => {
     }, 2000);
 });
 
-window.addEventListener("load", () => {
-    const portfolioCard = document.querySelector('.card:nth-child(2) img');
-
-    if (portfolioCard) {
-        html2canvas(document.body).then(canvas => {
-            const dataURL = canvas.toDataURL();
-            portfolioCard.src = dataURL;
-        });
-    }
-});
-
 const espelho = document.getElementById("espelho");
 
 if (espelho) {
@@ -88,10 +77,4 @@ if (espelho) {
     if (fakeEspelho) fakeEspelho.remove();
 
     espelho.appendChild(clone);
-}
-
-// Esconde o espelho dentro dele mesmo (previne loop infinito)
-if (window.self !== window.top) {
-    const reflexo = document.querySelector(".espelho-iframe");
-    if (reflexo) reflexo.style.display = "none";
 }
