@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio | André Toshiro Sudo</title>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
@@ -75,18 +76,29 @@
       <h2>🚀 Projetos</h2>
       <div class="cards">
         <div class="card">
-          <h3><a href="https://kuromorioficial.github.io/TravelMIngo/#">TravelMingo</a></h3>
-          <p>TravelMingo foi uma solução tecnológica desenvolvida em equipe como parte do nosso projeto de TCC. Seu
-            objetivo é simples e direto: auxiliar viajantes na identificação de pontos turísticos em localidades
-            específicas, facilitando o planejamento de viagens e a descoberta de novos destinos.</p>
-          <a href="https://github.com/KuromoriOficial/TravelMIngo">🔗 Ver repositório</a>
+          <img src="https://i.ibb.co/yFNjNDs0/imagem-exemplo-pagina-inicial-1.jpg" alt="Projeto TravelMingo"
+            class="card-img">
+          <div class="card-content">
+            <h3><a href="https://kuromorioficial.github.io/TravelMIngo/#">TravelMingo</a></h3>
+            <p>TravelMingo foi uma solução tecnológica desenvolvida em equipe como parte do nosso projeto de TCC...</p>
+            <a href="https://github.com/KuromoriOficial/TravelMIngo">🔗 Ver repositório</a>
+          </div>
         </div>
-        <div class="card">
-          <h3><a href="https://kuromorioficial.github.io/KuromoriOficial/"></a>portfolio</h3>
-          <p>Esse próprio portfólio, com tema inspirado no GitHub e animações leves.</p>
-          <a href="https://github.com/KuromoriOficial/KuromoriOficial">🔗 Ver repositório</a>
-        </div>
+
+<div class="card">
+  <div class="espelho-iframe">
+    <iframe src="." title="Espelho vivo do site" scrolling="no"></iframe>
+  </div>
+  <div class="card-content">
+    <h3>Portfolio (Espelho Vivo)</h3>
+    <p>Este cartão mostra uma miniatura em tempo real do site.</p>
+    <a href="#">🔗 Ver repositório</a>
+  </div>
+</div>
+
+
       </div>
+
     </section>
     <!-- Experiência -->
     <section id="experiencia">
@@ -212,8 +224,10 @@
     <!-- Mapa -->
     <section id="mapa">
       <h2>🌍 Minha Região</h2>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1181.2493593720756!2d-46.93861595837476!3d-23.63314550367699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cfa9ca72a1cd1f%3A0x36c52875fa895728!2sR.%20S%C3%A3o%20Cipriano%2C%20109%20-%20Jardim%20Sao%20Miguel%2C%20Cotia%20-%20SP%2C%2006719-310%2C%20Brasil!5e1!3m2!1spt-BR!2sus!4v1749314768040!5m2!1spt-BR!2sus" width="50%"
-        height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1181.2493593720756!2d-46.93861595837476!3d-23.63314550367699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cfa9ca72a1cd1f%3A0x36c52875fa895728!2sR.%20S%C3%A3o%20Cipriano%2C%20109%20-%20Jardim%20Sao%20Miguel%2C%20Cotia%20-%20SP%2C%2006719-310%2C%20Brasil!5e1!3m2!1spt-BR!2sus!4v1749314768040!5m2!1spt-BR!2sus"
+        width="50%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </section>
   </main>
