@@ -13,10 +13,11 @@
     box-sizing: border-box;
 }
 
+
 body {
     background-color: var(--bg-dark);
     color: var(--text);
-    font-family: var(--font);
+    font-family: monospace;
     line-height: 1.6;
 }
 
@@ -479,7 +480,7 @@ footer {
 }
 
 .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1);
 }
 
@@ -491,7 +492,7 @@ footer {
 }
 
 .card:hover .card-img {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .card-content {
@@ -500,7 +501,7 @@ footer {
 }
 
 .card:hover .card-content {
-    transform: scale(1.03);
+    transform: scale(1.2);
 }
 
 .card-content h3 {
