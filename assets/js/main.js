@@ -63,10 +63,14 @@
   onscroll(document, navbarlinksActive)
 
   /**
-   * Scrolls to an element with header offset
+   * Rolagem para um elemento considerando header fixo
+   * AVISO: Se você alterar a estrutura do header ou sua altura, ajuste o cálculo de `headerOffset` abaixo.
+   * Use `scrollto(selector)` para rolagem suave programaticamente.
    */
   const scrollto = (el) => {
-    let elementPos = select(el).offsetTop
+    const header = select('#header') || select('header')
+    const headerOffset = header ? header.offsetHeight : 0
+    let elementPos = select(el).offsetTop - headerOffset - 8 // small gap so section isn't hidden
     window.scrollTo({
       top: elementPos,
       behavior: 'smooth'
@@ -117,13 +121,69 @@
   }, true)
 
   /**
-   * Scroll with ofset on page load with hash links in the url
+   * Manipulação de hash com tentativas para lidar com mudanças de layout (fonts/imagens/conteúdo assíncrono).
+   * Parâmetros:
+   *  - hash (string): seletor para rolar (ex.: '#contato')
+   *  - attempts (number): número de tentativas antes do snap final
+   *  - baseDelay (number): ms base para backoff entre tentativas
+   * Ajuste esses valores padrão se notar problemas de alinhamento em conexões lentas/dispositivos.
    */
+  function scrollToHashWithRetries(hash, attempts = 8, baseDelay = 100) {
+    let tries = 0
+    const header = select('#header') || select('header')
+    const headerOffset = header ? header.offsetHeight : 0
+
+    const tryScroll = () => {
+      const el = select(hash)
+      if (!el) return
+      scrollto(hash)
+      tries++
+
+      const desiredY = el.offsetTop - headerOffset - 8
+      const diff = Math.abs(window.scrollY - desiredY)
+
+      if (diff > 40 && tries < attempts) {
+        setTimeout(tryScroll, baseDelay * tries)
+      } else {
+        el.setAttribute('tabindex', '-1')
+        try { el.focus({preventScroll: true}) } catch (e) { el.focus() }
+
+        // Final snap after a short delay in case layout continues to shift
+        setTimeout(() => {
+          const finalEl = select(hash)
+          if (!finalEl) return
+          const finalDesiredY = finalEl.offsetTop - (header ? (select('#header') || select('header')).offsetHeight : 0) - 8
+          // Use instantaneous scroll to ensure exact position
+          window.scrollTo({ top: finalDesiredY, behavior: 'auto' })
+          try { finalEl.focus({preventScroll: true}) } catch (e) { finalEl.focus() }
+        }, baseDelay * 2)
+      }
+    }
+
+    // Initial small delay to allow fonts/images to load
+    setTimeout(tryScroll, 60)
+  }
+
   window.addEventListener('load', () => {
     if (window.location.hash) {
       if (select(window.location.hash)) {
-        scrollto(window.location.hash)
+        // increase attempts/delay on initial load where resources may still shift layout
+        scrollToHashWithRetries(window.location.hash, 8, 120)
       }
+    }
+  });
+
+  // Also try when the hash changes (clicks that navigate within the site)
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash && select(window.location.hash)) {
+      scrollToHashWithRetries(window.location.hash, 8, 120)
+    }
+  });
+
+  // pageshow covers bfcache/back-forward restores where load may not fire
+  window.addEventListener('pageshow', () => {
+    if (window.location.hash && select(window.location.hash)) {
+      scrollToHashWithRetries(window.location.hash, 8, 120)
     }
   });
 
