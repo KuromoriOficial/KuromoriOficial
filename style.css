@@ -12,7 +12,7 @@
     --text: var(--text-main);
     /* Fonte única padrão: monospace (restaurado) */
     --font: monospace;
-} 
+}
 
 * {
     margin: 0;
@@ -48,7 +48,8 @@ header {
     border-bottom: 1px solid var(--border);
     padding: 20px;
     text-align: center;
-    position: relative; /* permite posicionar .header-actions sem quebrar o fluxo central */
+    position: relative;
+    /* permite posicionar .header-actions sem quebrar o fluxo central */
 }
 
 header .container {
@@ -57,10 +58,11 @@ header .container {
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
-} 
+}
 
 .header-actions {
-    margin-left: 0; /* reset para usar posicionamento absoluto */
+    margin-left: 0;
+    /* reset para usar posicionamento absoluto */
     display: flex;
     align-items: center;
     gap: 8px;
@@ -88,7 +90,7 @@ header .container {
         top: auto;
         transform: none;
     }
-} 
+}
 
 nav {
     margin-top: 15px;
@@ -443,27 +445,113 @@ h2 {
    - Para adicionar uma habilidade: crie `<li class="habilidade-item">` com um filho `.skill-dot` (adicione .basic/.intermediate/.advanced) e, opcionalmente, um `<i class="bi bi-... skill-icon">`.
    - O texto do tooltip é lido de `data-level` na `.skill-dot`. Altere as cores editando `.skill-dot.*`.
 */
-.habilidades-grid{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    max-width:900px;
+.habilidades-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 900px;
 }
-.habilidades-legend{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:8px;font-size:14px;color:var(--text);}
-.skill-legend{display:flex;align-items:center;gap:8px}
-.skill-dot{width:14px;height:14px;border-radius:50%;display:inline-block;flex:0 0 14px;border:2px solid rgba(255,255,255,0.06)}
-.skill-dot.basic{background:#6c757d}
-.skill-dot.intermediate{background:#ff9f1c}
-.skill-dot.advanced{background:#28a745}
 
-.habilidades-list{list-style:none;padding:0;margin:0;display:flex;gap:8px;flex-wrap:wrap}
+.habilidades-legend {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--text);
+}
+
+.skill-legend {
+    display: flex;
+    align-items: center;
+    gap: 8px
+}
+
+.skill-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    flex: 0 0 14px;
+    border: 2px solid rgba(255, 255, 255, 0.06)
+}
+
+.skill-dot.basic {
+    background: #6c757d
+}
+
+.skill-dot.intermediate {
+    background: #ff9f1c
+}
+
+.skill-dot.advanced {
+    background: #28a745
+}
+
+.habilidades-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap
+}
+
 /* .habilidade-item consolidated below to use project card colors (var(--bg-card), var(--border)) */
-.habilidade-item .skill-dot{width:12px;height:12px;border-width:0;margin-right:6px;flex:0 0 auto}
-.habilidade-item .skill-icon{font-size:16px;margin-right:8px;opacity:0.95}
-.habilidade-item .skill-dot[data-level]:hover::after, .habilidade-item .skill-dot[data-level]:focus::after{content:attr(data-level);position:absolute;top:-36px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.85);color:#fff;padding:6px 8px;border-radius:6px;font-size:13px;white-space:nowrap;z-index:20}
-.habilidade-item .skill-dot[data-level]:hover::before, .habilidade-item .skill-dot[data-level]:focus::before{content:'';position:absolute;top:-22px;left:50%;transform:translateX(-50%) rotate(45deg);width:10px;height:10px;background:rgba(0,0,0,0.85);z-index:19}
-.habilidade-item:focus{outline:2px solid rgba(255,255,255,0.06);}
-@media (max-width:600px){.habilidade-item{font-size:14px;padding:7px 10px}}
+.habilidade-item .skill-dot {
+    width: 12px;
+    height: 12px;
+    border-width: 0;
+    margin-right: 6px;
+    flex: 0 0 auto
+}
+
+.habilidade-item .skill-icon {
+    font-size: 16px;
+    margin-right: 8px;
+    opacity: 0.95
+}
+
+.habilidade-item .skill-dot[data-level]:hover::after,
+.habilidade-item .skill-dot[data-level]:focus::after {
+    content: attr(data-level);
+    position: absolute;
+    top: -36px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    z-index: 20
+}
+
+.habilidade-item .skill-dot[data-level]:hover::before,
+.habilidade-item .skill-dot[data-level]:focus::before {
+    content: '';
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 10px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 19
+}
+
+.habilidade-item:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width:600px) {
+    .habilidade-item {
+        font-size: 14px;
+        padding: 7px 10px
+    }
+}
 
 .bandeira {
     width: 24px;
@@ -542,61 +630,61 @@ h2 {
 }
 
 .card {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 16px;
-  transition: border-color 0.15s ease;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px;
+    transition: border-color 0.15s ease;
 }
 
 .card:hover {
-  border-color: var(--accent);
+    border-color: var(--accent);
 }
 
 /* GitHub feelings */
 body {
-  /* Restaurado: fonte padrão anterior */
-  font-family: monospace;
-  background-color: var(--bg-main);
-  color: var(--text-main);
-  line-height: 1.6;
+    /* Restaurado: fonte padrão anterior */
+    font-family: monospace;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
 }
 
 /* Hierarquia */
 h1 {
-  font-size: 32px;
-  font-weight: 600;
+    font-size: 32px;
+    font-weight: 600;
 }
 
 h2 {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text-main);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-main);
 }
 
 p {
-  font-size: 14px;
-  color: var(--text-muted);
+    font-size: 14px;
+    color: var(--text-muted);
 }
 
 /* Links (bem GitHub) */
 a {
-  color: var(--accent);
-  text-decoration: none;
+    color: var(--accent);
+    text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* Botões e badges */
 .badge {
-  font-size: 12px;
-  padding: 2px 8px;
-  border-radius: 20px;
-  background-color: #21262d;
-  border: 1px solid var(--border);
-  color: var(--text-muted);
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background-color: #21262d;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
 }
 
 .site-header {
@@ -637,30 +725,115 @@ a:hover {
     margin-right: 8px;
 }
 
-.btn { padding: 6px 10px; border-radius: 6px; text-decoration: none; border: 1px solid var(--gh-border); }
-.btn-primary { background: var(--btn-bg); color: var(--btn-text); border: none; }
-.btn-outline { background: transparent; color: var(--gh-text); }
+.btn {
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid var(--gh-border);
+}
 
-.site-nav { padding: 10px 0; display:flex; gap:12px; justify-content:center; }
-.site-nav a { color: var(--gh-muted); text-decoration:none; }
+.btn-primary {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+}
 
-.theme-toggle { background: transparent; border: 1px solid var(--gh-border); padding:6px 10px; border-radius:6px; cursor:pointer }
+.btn-outline {
+    background: transparent;
+    color: var(--gh-text);
+}
 
-.pinned-repos { display: flex; gap: 12px; flex-wrap:wrap; }
-.repo-card { border:1px solid var(--gh-border); padding:12px; border-radius:6px; background:var(--gh-surface); width: 300px; }
-.repo-card h3 { margin: 0 0 6px 0; font-size:16px }
-.repo-meta { color: var(--gh-muted); font-size:13px }
+.site-nav {
+    padding: 10px 0;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
 
-.contrib-grid { padding:8px 0; }
-.contrib-grid .grid-wrap { display:grid; grid-template-columns: repeat(14, 12px); gap:6px; }
-.contrib-grid .cell { width:12px; height:12px; background:#ebedf0; border-radius:2px; }
-.contrib-grid .cell.level-1 { background:#9be9a8; }
-.contrib-grid .cell.level-2 { background:#40c463; }
-.contrib-grid .cell.level-3 { background:#30a14e; }
-.contrib-grid .cell.level-4 { background:#216e39; }
+.site-nav a {
+    color: var(--gh-muted);
+    text-decoration: none;
+}
 
-.badges { display:flex; gap:8px; flex-wrap:wrap; }
-.badge { background:var(--gh-surface); border:1px solid var(--gh-border); padding:6px 10px; border-radius:6px; font-weight:600; color:var(--gh-text) }
+.theme-toggle {
+    background: transparent;
+    border: 1px solid var(--gh-border);
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer
+}
+
+.pinned-repos {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.repo-card {
+    border: 1px solid var(--gh-border);
+    padding: 12px;
+    border-radius: 6px;
+    background: var(--gh-surface);
+    width: 300px;
+}
+
+.repo-card h3 {
+    margin: 0 0 6px 0;
+    font-size: 16px
+}
+
+.repo-meta {
+    color: var(--gh-muted);
+    font-size: 13px
+}
+
+.contrib-grid {
+    padding: 8px 0;
+}
+
+.contrib-grid .grid-wrap {
+    display: grid;
+    grid-template-columns: repeat(14, 12px);
+    gap: 6px;
+}
+
+.contrib-grid .cell {
+    width: 12px;
+    height: 12px;
+    background: #ebedf0;
+    border-radius: 2px;
+}
+
+.contrib-grid .cell.level-1 {
+    background: #9be9a8;
+}
+
+.contrib-grid .cell.level-2 {
+    background: #40c463;
+}
+
+.contrib-grid .cell.level-3 {
+    background: #30a14e;
+}
+
+.contrib-grid .cell.level-4 {
+    background: #216e39;
+}
+
+.badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: var(--gh-surface);
+    border: 1px solid var(--gh-border);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    color: var(--gh-text)
+}
 
 /* Habilidades e Conhecimentos */
 .habilidades-list {
@@ -671,6 +844,7 @@ a:hover {
     gap: 12px;
     margin-top: 12px;
 }
+
 .habilidade-item {
     /* Usando as mesmas cores das demais caixas (cards/feedbacks) */
     background: var(--bg-card);
@@ -684,8 +858,15 @@ a:hover {
     color: var(--text);
     position: relative;
 }
-.habilidade-item strong { font-weight: 700; }
-.habilidade-item .icon { font-size: 18px; margin-right: 8px; }
+
+.habilidade-item strong {
+    font-weight: 700;
+}
+
+.habilidade-item .icon {
+    font-size: 18px;
+    margin-right: 8px;
+}
 
 /* === Rodapé === */
 
@@ -756,15 +937,56 @@ footer {
 }
 
 /* Mapa: centralizar iframe e adicionar botões de contato */
-#mapa{ text-align:center; padding:20px 0; }
-#mapa iframe{ display:block; margin:12px auto; width:80%; max-width:900px; border:0; height:300px; }
-@media (max-width:600px){
-    #mapa iframe{ width:100%; }
+#mapa {
+    text-align: center;
+    padding: 20px 0;
 }
-.map-actions{ display:flex; justify-content:center; gap:12px; margin-bottom:10px; }
-.contact-btn{ display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:8px; border:1px solid var(--border); background:var(--bg-card); color:var(--text); text-decoration:none; font-size:18px; transition:transform .12s ease; }
-.contact-btn:hover{ transform:translateY(-3px); border-color:var(--accent); }
-.contact-btn .bi{ font-size:20px; }
+
+#mapa iframe {
+    display: block;
+    margin: 12px auto;
+    width: 80%;
+    max-width: 900px;
+    border: 0;
+    height: 300px;
+}
+
+@media (max-width:600px) {
+    #mapa iframe {
+        width: 100%;
+    }
+}
+
+.map-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 18px;
+    transition: transform .12s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+}
+
+.contact-btn .bi {
+    font-size: 20px;
+}
 
 .espelho-container {
     width: 100%;
@@ -772,7 +994,7 @@ footer {
     overflow: hidden;
     border-bottom: 1px solid var(--border);
     position: relative;
-} 
+}
 
 .espelho-site {
     transform: scale(0.2);

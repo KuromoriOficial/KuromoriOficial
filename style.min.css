@@ -930,3 +930,58 @@ footer {
     height: 500%;
     pointer-events: none
 }
+
+
+.curso-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 6px;
+}
+
+.curso-icon img {
+    width: 22px;
+    /* ajuste fino se quiser */
+    height: 22px;
+    object-fit: contain;
+    justify-content: center;
+    display: block;
+}
+
+#contact-float {
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  background: #0d1117; /* estilo GitHub */
+  padding: 12px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+
+  z-index: 999;
+}
+
+#contact-float.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+#contact-float a {
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+#contact-float a:hover {
+  transform: scale(1.15);
+}
