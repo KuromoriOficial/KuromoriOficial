@@ -15,7 +15,7 @@ const slider = document.getElementById("habilidades-slider");
 const toggleButton = document.getElementById("toggle-play");
 let animando = true;
 
-// Duplica o conteúdo para rolar infinitamente (somente uma vez e se existir)
+// Duplica o conteúdo para rolar infinitamente (sempre ativa)
 if (slider) {
     if (!slider.dataset.duplicated) {
         slider.innerHTML += slider.innerHTML;
@@ -23,7 +23,7 @@ if (slider) {
     }
 } else {
     console.warn("habilidades-slider não encontrado no documento.");
-}
+}  
 
 if (toggleButton) {
     toggleButton.addEventListener("click", () => {
@@ -161,7 +161,11 @@ themeToggle && themeToggle.addEventListener('click', () => {
 const pinnedRepos = [
     {name: 'TravelMIngo', url: 'https://github.com/KuromoriOficial/TravelMIngo', desc: 'Projeto de TCC — app de viagens', stars: 12, lang: 'HTML'},
     {name: 'Portfolio', url: 'https://github.com/KuromoriOficial/KuromoriOficial', desc: 'Meu portfólio pessoal', stars: 45, lang: 'HTML'},
-    {name: 'Dev-Utils', url: '#', desc: 'Ferramentas e scripts úteis', stars: 7, lang: 'JavaScript'}
+    {name: 'Dev-Utils', url: '#', desc: 'Ferramentas e scripts úteis', stars: 7, lang: 'JavaScript'},
+    {name: 'Modpack', url: 'https://github.com/KuromoriOficial/Modpack', desc: 'Site para divulgar servidor (Modpack)', stars: 0, lang: 'HTML'},
+    {name: 'project_curso_ciee', url: 'https://github.com/KuromoriOficial/project_curso_ciee', desc: 'Projeto web para CIEE — divulgação social', stars: 0, lang: 'HTML'},
+    {name: 'ProjetoExtra1', url: '#', desc: 'Projeto extra: adicione detalhes aqui.', stars: 0, lang: 'HTML'},
+    {name: 'ProjetoExtra2', url: '#', desc: 'Projeto extra: adicione detalhes aqui.', stars: 0, lang: 'JavaScript'}
 ];
 
 // Accessibility: ensure skill dots are keyboard-focusable and labelled

@@ -343,39 +343,23 @@ h2 {
     transition: all 0.3s ease
 }
 
-.habilidades-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid var(--border);
-    padding: 6px 12px;
-    border-radius: 8px;
-    margin-top: 5px;
-    gap: 10px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto
-}
+.habilidades-wrapper{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);padding:6px 12px;border-radius:8px;margin-top:5px;gap:10px;max-width:600px;width:min(600px,96vw);box-sizing:border-box;margin-left:auto;margin-right:auto;overflow:hidden} 
 
 .slider-container {
     overflow: hidden;
     flex: 1;
-    min-width: 0
-}
+    min-width: 0;
+    width: 100%
+} 
 
-.habilidades-slider {
-    display: inline-flex;
-    gap: 30px;
-    animation: deslizar 25s linear infinite;
-    white-space: nowrap;
-    font-family: monospace;
-    font-size: 16px;
-    color: var(--accent)
-}
+.habilidades-slider{display:inline-flex;gap:clamp(10px,3vw,30px);animation:deslizar 20s linear infinite;white-space:nowrap;font-family:monospace;font-size:clamp(13px,1.8vw,16px);color:var(--accent);box-sizing:border-box;will-change:transform} 
 
 .habilidades-slider span {
     display: inline-block
 }
+
+@media (max-width:480px){html,body{overflow-x:hidden}.habilidades-wrapper{padding:6px 8px;gap:8px;width:min(560px,96vw)}.slider-container{width:100%;overflow:hidden}.habilidades-slider{gap:12px;font-size:13px;min-width:100%;max-width:100%;display:inline-flex;white-space:nowrap;animation:deslizar 12s linear infinite}.habilidades-slider span{display:inline-flex;align-items:center;white-space:nowrap;margin:0 6px}.habilidades-slider img{width:18px;height:18px}#toggle-play{padding:4px 8px;font-size:14px}}  
+@media (max-width:360px){.habilidades-slider{gap:8px;font-size:12px;animation:deslizar 10s linear infinite}.habilidades-slider span{max-width:calc(100vw - 80px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#toggle-play{padding:3px 6px;font-size:13px}} 
 
 #toggle-play {
     background: none;
